@@ -42,7 +42,7 @@ import 'tinymce/plugins/toc';
 import 'tinymce/plugins/visualblocks';
 import 'tinymce/plugins/visualchars';
 import 'tinymce/plugins/wordcount';
-import 'tinymce/skins/content/default/content.min.css';
+// import 'tinymce/skins/content/default/content.min.css';
 import 'tinymce/skins/ui/oxide/skin.min.css';
 import 'tinymce/icons/default';
 
