@@ -70,7 +70,7 @@
                 default: 'vue2-tinymce-editor-' + new Date().getTime(),
                 type: String,
             },
-            value: {default: ''},
+            modelValue: {default: ''},
             options: {
                 default: function () {
                     return {}
@@ -101,14 +101,14 @@
             }
         },
         mounted() {
-            this.content = this.value
+            this.content = this.modelValue
             this.init()
         },
         beforeDestroy() {
-            this.editor.destroy()
+            this.editor?.destroy?.()
         },
         watch: {
-            value: function (newValue) {
+            modelValue: function (newValue) {
                 if (!this.isTyping) {
                     if (this.editor !== null)
                         this.editor.setContent(newValue)
@@ -142,14 +142,14 @@
                     this.submitContent()
                 })
                 editor.on('Change', (e) => {
-                    if (this.editor.getContent() !== this.value) {
+                    if (this.editor.getContent() !== this.modelValue) {
                         this.submitContent()
                     }
                     this.$emit('editorChange', e)
                 })
                 editor.on('init', () => {
                     editor.setContent(this.content)
-                    this.$emit('input', this.content)
+                    this.$emit('update:modelValue', this.content)
                 })
                 this.$emit('editorInit', editor)
             },
@@ -160,7 +160,7 @@
                 this.checkerTimeout = setTimeout(() => {
                     this.isTyping = false
                 }, 700)
-                this.$emit('input', this.editor.getContent())
+                this.$emit('update:modelValue', this.editor.getContent())
             }
         }
     }
