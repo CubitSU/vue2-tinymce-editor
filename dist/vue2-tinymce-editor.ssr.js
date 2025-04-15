@@ -70,7 +70,7 @@ var script = {
   },
   data: function data() {
     return {
-      inputId: "editor-" + new Date().getTime(),
+      inputId: "editor-" + Math.floor(performance.now() * Math.random()),
       content: '',
       editor: null,
       checkerTimeout: null,
