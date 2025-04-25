@@ -1,6 +1,6 @@
 {
   "name": "vue2-tinymce-editor",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A TinyMCE WYSIWYG editor component for your Vue products",
   "author": {
     "name": "Alex Beshine",
@@ -23,7 +23,7 @@
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife --bundleConfigAsCjs"
   },
   "dependencies": {
-    "tinymce": "^5.6.2"
+    "tinymce": "https://github.com/CubitSU/mce.git"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
